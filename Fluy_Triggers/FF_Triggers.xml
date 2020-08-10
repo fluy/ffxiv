@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="5be0d36c-a2c0-4ce7-ab00-5b0a30938102" Name="FF_Triggers" Enabled="true">
+    <Folders>
+      <Folder Id="b9d7a54d-ced5-4634-a73c-141a6854b17f" Name="OBS" Enabled="true">
+        <Folders>
+          <Folder ZoneFilterEnabled="True" Id="481bca03-6bbb-407a-9809-eedd35d901e5" ZoneFilterRegularExpression=".+\((Ultimate|Savage|Extreme)\)" Name="OBS Record" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="start recording" Id="d7582dd4-900f-4c3c-9817-5f18d1276c4e" RegularExpression="\A.{15}00:(0139|00b9):戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
+                <Actions>
+                  <Action OrderNumber="1" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="SystemBeep">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="2" LogLevel="-1" OBSControlType="StartRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="stop recording" Id="58bcc836-4cd2-4d3f-8601-55c101910829" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)" Description="これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画停止を通知します。&#xD;&#xA;ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
+                <Actions>
+                  <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="auto record control" Id="317d62cf-98e9-46ba-9bcb-e13af18ff240" RegularExpression="\A.{15}00:0038:!obs autorecord (on|off)" Description="/echo !obs autorecord on&#xD;&#xA;OBS自動録画を有効にする&#xD;&#xA;&#xD;&#xA;/echo !obs autorecord off&#xD;&#xA;OBS自動録画を無効にする">
+            <Actions>
+              <Action OrderNumber="1" FolderId="481bca03-6bbb-407a-9809-eedd35d901e5" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" TriggerOp="EnableTrigger" TriggerId="d7582dd4-900f-4c3c-9817-5f18d1276c4e" ActionType="Folder">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="$1" ExpressionTypeL="String" ExpressionR="on" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="481bca03-6bbb-407a-9809-eedd35d901e5" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" TriggerOp="DisableTrigger" TriggerId="91c975aa-363f-4828-b063-751c1c7dde76" ActionType="Folder">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="$1" ExpressionTypeL="String" ExpressionR="off" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" IsReadme="True" Name="Read Me" Id="bccae7ec-1331-4810-b231-e7cb02a2abbe" RegularExpression="\A.{15}00:0038:!Fl Help" Description="-Read Me&#xD;&#xA;    このトリガーは説明用トリガーです。特に効果はありません。&#xD;&#xA;&#xD;&#xA;+OBS&#xD;&#xA;    OBS関連機能を使用するにはOBS WebSocketプラグインのインストールが必要です。&#xD;&#xA;    以下のURLからダウンロード・インストールをしてください(obs-websocket-x.x.x-Windows-Installer.exeまたはobs-websocket-x.x.x-Windows.zip)&#xD;&#xA;    https://github.com/Palakis/obs-websocket/releases&#xD;&#xA;    また、このリポジトリ(FF_Triggersの1つ上位にあるもの)自体の設定で「Allow triggers to control OBS」のチェックボックスを有効にする必要があります。&#xD;&#xA;    登録後に有効にした場合は画面上部にあるアップデートボタンを押してください。&#xD;&#xA;&#xD;&#xA;    -auto record control&#xD;&#xA;        ゲーム内echoマクロで自動録画設定をコントロールします。&#xD;&#xA;        /echo !obs autorecord on&#xD;&#xA;        OBS自動録画を有効にする&#xD;&#xA;&#xD;&#xA;        /echo !obs autorecord off&#xD;&#xA;        OBS自動録画を無効にする&#xD;&#xA;&#xD;&#xA;    +OBS Record&#xD;&#xA;        -start recording&#xD;&#xA;            これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;            なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。&#xD;&#xA;&#xD;&#xA;        -stop recording&#xD;&#xA;            これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画停止を通知します。&#xD;&#xA;            ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
+        <Actions />
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
