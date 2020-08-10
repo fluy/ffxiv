@@ -16,7 +16,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="false" Name="stop recording_ALL" Id="d7914da7-4758-47c8-b6c3-68c7856618eb" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)">
+          <Trigger Enabled="true" Name="stop recording_ALL" Id="d7914da7-4758-47c8-b6c3-68c7856618eb" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)">
             <Actions>
               <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
                 <Condition Enabled="false" Grouping="Or" />
@@ -24,28 +24,14 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="stop recording" Id="84d05fa2-ed53-441a-befe-54dbd5afeb00" RegularExpression="\A.{15}00:0839:「.+」の攻略を終了した。&#xA;">
+          <Trigger Enabled="false" Name="stop recording_min" Id="84d05fa2-ed53-441a-befe-54dbd5afeb00" RegularExpression="\A.{15}00:0839:「.+」の攻略を終了した。&#xA;">
             <Actions>
               <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
-        </Triggers>
-      </Folder>
-      <Folder Id="b3570568-4dca-4ce1-9efb-fe70f03f2a5e" Name="test" Enabled="true">
-        <Folders />
-        <Triggers>
-          <Trigger Enabled="true" Name="test trigger" Id="c1f2601a-c2d6-4a2f-bca1-1515d9af2e4c" RegularExpression="\A.{15}00:0038:!test beep">
-            <Actions>
-              <Action OrderNumber="1" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="SystemBeep">
                 <Condition Enabled="false" Grouping="Or" />
                 <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
