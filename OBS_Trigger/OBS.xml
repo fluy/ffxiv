@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="4b3ec5f1-e23e-4110-9de9-5b4d550178f8" Name="OBS" Enabled="true">
+    <Folders>
+      <Folder ZoneFilterEnabled="True" Id="6e284376-5e42-4a6b-8611-f3eefb896b30" ZoneFilterRegularExpression="(The\ Epic\ Of\ Alexander\ \(Ultimate\)|Eden's\ Verse:\ Refulgence\ \(Savage\))" Name="OBS Record" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="start recording" Id="5cbc2996-080a-42bd-ae7a-2373d527c59e" RegularExpression="\A.{15}00:(0139|00b9):戦闘開始まで\d{1,2}秒！">
+            <Actions>
+              <Action OrderNumber="1" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LogLevel="-1" OBSControlType="StartRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="false" Name="stop recording_A" Id="d7914da7-4758-47c8-b6c3-68c7856618eb" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)">
+            <Actions>
+              <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="stop recording" Id="84d05fa2-ed53-441a-befe-54dbd5afeb00" RegularExpression="\A.{15}00:0839:「.+」の攻略を終了した。&#xA;">
+            <Actions>
+              <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="auto record control" Id="268d4721-ae8d-4889-abf5-acd02a79dcb4" RegularExpression="\A.{15}00:0038:!obs autorecord (on|off)">
+        <Actions>
+          <Action OrderNumber="1" FolderId="6e284376-5e42-4a6b-8611-f3eefb896b30" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" TriggerOp="EnableTrigger" TriggerId="5cbc2996-080a-42bd-ae7a-2373d527c59e" ActionType="Folder">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="$1" ExpressionTypeL="String" ExpressionR="on" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="6e284376-5e42-4a6b-8611-f3eefb896b30" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" TriggerOp="DisableTrigger" TriggerId="84d05fa2-ed53-441a-befe-54dbd5afeb00" ActionType="Folder">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="$1" ExpressionTypeL="String" ExpressionR="off" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
