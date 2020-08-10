@@ -20,7 +20,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="stop recording" Id="58bcc836-4cd2-4d3f-8601-55c101910829" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)" Description="これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
+              <Trigger Enabled="true" Name="stop recording" Id="58bcc836-4cd2-4d3f-8601-55c101910829" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)" Description="これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画停止を通知します。&#xD;&#xA;ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
                     <Condition Enabled="false" Grouping="Or" />
@@ -54,7 +54,7 @@
       </Folder>
     </Folders>
     <Triggers>
-      <Trigger Enabled="true" IsReadme="True" Name="Read Me" Id="bccae7ec-1331-4810-b231-e7cb02a2abbe" RegularExpression="\A.{15}00:0038:!Fl Help" Description="OBS&#xD;&#xA;    -auto record control&#xD;&#xA;        ゲーム内echoマクロで自動録画設定をコントロールします。&#xD;&#xA;        /echo !obs autorecord on&#xD;&#xA;        OBS自動録画を有効にする&#xD;&#xA;&#xD;&#xA;        /echo !obs autorecord off&#xD;&#xA;        OBS自動録画を無効にする&#xD;&#xA;&#xD;&#xA;    -OBS Record&#xD;&#xA;        -start recording&#xD;&#xA;            これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;            なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。&#xD;&#xA;&#xD;&#xA;        -stop recording&#xD;&#xA;            これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;            ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
+      <Trigger Enabled="true" IsReadme="True" Name="Read Me" Id="bccae7ec-1331-4810-b231-e7cb02a2abbe" RegularExpression="\A.{15}00:0038:!Fl Help" Description="Read Me&#xD;&#xA;    このトリガーは説明用トリガーです。特に効果はありません。&#xD;&#xA;&#xD;&#xA;OBS&#xD;&#xA;    -auto record control&#xD;&#xA;        ゲーム内echoマクロで自動録画設定をコントロールします。&#xD;&#xA;        /echo !obs autorecord on&#xD;&#xA;        OBS自動録画を有効にする&#xD;&#xA;&#xD;&#xA;        /echo !obs autorecord off&#xD;&#xA;        OBS自動録画を無効にする&#xD;&#xA;&#xD;&#xA;    -OBS Record&#xD;&#xA;        -start recording&#xD;&#xA;            これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;            なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。&#xD;&#xA;&#xD;&#xA;        -stop recording&#xD;&#xA;            これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画停止を通知します。&#xD;&#xA;            ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
         <Actions />
         <Condition Enabled="false" Grouping="Or" />
         <Conditions />
