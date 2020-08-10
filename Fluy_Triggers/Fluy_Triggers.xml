@@ -21,17 +21,7 @@
                 <Condition Enabled="false" Grouping="Or" />
                 <Conditions />
               </Trigger>
-              <Trigger Enabled="false" Name="stop recording_ALL" Id="58bcc836-4cd2-4d3f-8601-55c101910829" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)">
-                <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Name="stop recording_min" Id="91c975aa-363f-4828-b063-751c1c7dde76" RegularExpression="\A.{15}00:0839:「.+」の攻略を終了した。&#xA;">
+              <Trigger Enabled="true" Name="stop recording" Id="58bcc836-4cd2-4d3f-8601-55c101910829" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
                     <Condition Enabled="false" Grouping="Or" />
