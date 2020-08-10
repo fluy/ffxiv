@@ -7,7 +7,7 @@
           <Folder ZoneFilterEnabled="True" Id="481bca03-6bbb-407a-9809-eedd35d901e5" ZoneFilterRegularExpression=".+\((Ultimate|Savage|Extreme)\)" Name="OBS Record" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="start recording" Id="d7582dd4-900f-4c3c-9817-5f18d1276c4e" RegularExpression="\A.{15}00:(0139|00b9):戦闘開始まで\d{1,2}秒！">
+              <Trigger Enabled="true" IsReadme="True" Name="start recording" Id="d7582dd4-900f-4c3c-9817-5f18d1276c4e" RegularExpression="\A.{15}00:(0139|00b9):戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="SystemBeep">
                     <Condition Enabled="false" Grouping="Or" />
@@ -19,9 +19,8 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="stop recording" Id="58bcc836-4cd2-4d3f-8601-55c101910829" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)">
+              <Trigger Enabled="true" Name="stop recording" Id="58bcc836-4cd2-4d3f-8601-55c101910829" RegularExpression="\A.{15}(00:0839:「.+」の攻略を終了した。&#xA;|21:8003[0-9A-F]{4}:40000012:00:00:00:00)" Description="これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
                     <Condition Enabled="false" Grouping="Or" />
@@ -29,13 +28,12 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="true" Name="auto record control" Id="317d62cf-98e9-46ba-9bcb-e13af18ff240" RegularExpression="\A.{15}00:0038:!obs autorecord (on|off)">
+          <Trigger Enabled="true" Name="auto record control" Id="317d62cf-98e9-46ba-9bcb-e13af18ff240" RegularExpression="\A.{15}00:0038:!obs autorecord (on|off)" Description="/echo !obs autorecord on&#xD;&#xA;OBS自動録画を有効にする&#xD;&#xA;&#xD;&#xA;/echo !obs autorecord off&#xD;&#xA;OBS自動録画を無効にする">
             <Actions>
               <Action OrderNumber="1" FolderId="481bca03-6bbb-407a-9809-eedd35d901e5" LogLevel="-1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" TriggerOp="EnableTrigger" TriggerId="d7582dd4-900f-4c3c-9817-5f18d1276c4e" ActionType="Folder">
                 <Condition Enabled="true" Grouping="Or">
@@ -51,7 +49,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
