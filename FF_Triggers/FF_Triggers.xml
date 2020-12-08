@@ -37,7 +37,11 @@
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="2" LogLevel="-1" OBSControlType="StartRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+                  <Action OrderNumber="2" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="3" LogLevel="-1" OBSControlType="StartRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl" ExecutionDelayExpression="5000">
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Action>
