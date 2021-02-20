@@ -8,7 +8,7 @@
             <Folders>
               <Folder Id="653b1820-f772-4d8d-a9b9-2f33e0ec2bf1" Name="other stops" Enabled="true">
                 <Folders>
-                  <Folder ZoneFilterEnabled="True" Id="e0316a60-1224-4f6e-a455-d603f8c29f56" ZoneFilterRegularExpression="Delubrum Reginae (Savage)" Name="Delubrum Reginae (Savage)" Enabled="true">
+                  <Folder ZoneFilterEnabled="True" Id="e0316a60-1224-4f6e-a455-d603f8c29f56" ZoneFilterRegularExpression="Delubrum\ Reginae\ \(Savage\)" Name="Delubrum Reginae (Savage)" Enabled="true">
                     <Folders />
                     <Triggers>
                       <Trigger Enabled="true" Name="リミットゲージ" Id="d224b2cd-16fd-4a6f-acf6-7ce42a4a99ad" RegularExpression="\A.{15}00:0839:リミットゲージがリセットされた……">
