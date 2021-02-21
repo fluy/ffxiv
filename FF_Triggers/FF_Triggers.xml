@@ -13,13 +13,12 @@
                     <Triggers>
                       <Trigger Enabled="true" Name="リミットゲージ" Id="d224b2cd-16fd-4a6f-acf6-7ce42a4a99ad" RegularExpression="\A.{15}00:0839:リミットゲージがリセットされた……">
                         <Actions>
-                          <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+                          <Action OrderNumber="1" LogLevel="-1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl" ExecutionDelayExpression="10000">
                             <Condition Enabled="false" Grouping="Or" />
                             <Conditions />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
