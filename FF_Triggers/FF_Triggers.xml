@@ -4,7 +4,7 @@
     <Folders>
       <Folder Id="f24a02f7-ef25-4f5a-925e-ed9c31dac16e" Name="OBS" Enabled="true">
         <Folders>
-          <Folder ZoneFilterEnabled="True" Id="5cd9eb13-ef56-4d24-8542-933d45b4af4f" ZoneFilterRegularExpression="(The Minstrel's Ballad.+|.+\((Ultimate|Savage|Extreme)\))" Name="OBS Record" Enabled="true">
+          <Folder Id="5cd9eb13-ef56-4d24-8542-933d45b4af4f" ZoneFilterRegularExpression="(The Minstrel's Ballad.+|.+\((Ultimate|Savage|Extreme)\))" Name="OBS Record" Enabled="true">
             <Folders>
               <Folder Id="5ba744a8-ce8e-4db8-9066-9aafaf40450d" Name="other stops" Enabled="true">
                 <Folders>
@@ -28,7 +28,7 @@
               </Folder>
             </Folders>
             <Triggers>
-              <Trigger Enabled="true" Name="start recording" Id="d83a1e85-3387-46af-92b3-db9d573b38ac" RegularExpression="\A.{15}\w+ 00:(0139|00b9|0239):戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
+              <Trigger Enabled="true" Name="start recording" Id="d83a1e85-3387-46af-92b3-db9d573b38ac" RegularExpression="\A.{15}\w+ 00:(0139|00b9|0239):+戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="SystemBeep">
                     <Condition Enabled="false" Grouping="Or" />
@@ -42,7 +42,7 @@
                 <Condition Enabled="false" Grouping="Or" />
                 <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="stop recording" Id="7de5a041-0a09-4a4b-a291-12158f6c506b" RegularExpression="\A.{15}\w+ (00:0839:(「.+」の攻略を終了した。|制限時間に達したため、「.+」のコンテンツを終了した。)|21:8003[0-9A-F]{4}:40000012:00:00:00:00|00:(0139|00b9|0239|0039):(.+)により、戦闘開始カウントがキャンセルされました。)" Description="これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画停止を通知します。&#xD;&#xA;ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
+              <Trigger Enabled="true" Name="stop recording" Id="7de5a041-0a09-4a4b-a291-12158f6c506b" RegularExpression="\A.{15}\w+ (00:0839:+(「.+」の攻略を終了した。|制限時間に達したため、「.+」のコンテンツを終了した。)|21:8003[0-9A-F]{4}:+40000012:00:00:00:00|00:(0139|00b9|0239|0039):(.+)により、戦闘開始カウントがキャンセルされました。)" Description="これを有効にすることでワイプまたはコンテンツからの退出を検出し、OBS WebSocketに録画停止を通知します。&#xD;&#xA;ただし、暗転ワイプが行われないようなコンテンツの場合(IDボスなどは「開始地点に戻る」の選択肢が出るだけのためワイプ処理はされてない)検出が出来ないため注意。">
                 <Actions>
                   <Action OrderNumber="1" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
                     <Condition Enabled="false" Grouping="Or" />
