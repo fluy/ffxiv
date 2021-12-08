@@ -4,7 +4,7 @@
     <Folders>
       <Folder Id="f24a02f7-ef25-4f5a-925e-ed9c31dac16e" Name="OBS" Enabled="true">
         <Folders>
-          <Folder ZoneFilterEnabled="True" Id="5cd9eb13-ef56-4d24-8542-933d45b4af4f" ZoneFilterRegularExpression="(The Minstrel's Ballad.*|.+\((Ultimate|Savage|Extreme)\))" Name="OBS Record" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="5cd9eb13-ef56-4d24-8542-933d45b4af4f" ZoneFilterRegularExpression="(The Minstrel's Ballad.+|.+\((Ultimate|Savage|Extreme)\))" Name="OBS Record" Enabled="true">
             <Folders>
               <Folder Id="5ba744a8-ce8e-4db8-9066-9aafaf40450d" Name="other stops" Enabled="true">
                 <Folders>
@@ -28,7 +28,7 @@
               </Folder>
             </Folders>
             <Triggers>
-              <Trigger Enabled="true" Name="start recording" Id="d83a1e85-3387-46af-92b3-db9d573b38ac" RegularExpression="\A.{15}\w+ 00:(0139|00b9|0239|0039):戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
+              <Trigger Enabled="true" Name="start recording" Id="d83a1e85-3387-46af-92b3-db9d573b38ac" RegularExpression="\A.{15}\w+ 00:(0139|00b9|0239):戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="SystemBeep">
                     <Condition Enabled="false" Grouping="Or" />
