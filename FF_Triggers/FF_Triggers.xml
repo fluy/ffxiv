@@ -4,7 +4,7 @@
     <Folders>
       <Folder Id="f24a02f7-ef25-4f5a-925e-ed9c31dac16e" Name="OBS" Enabled="true">
         <Folders>
-          <Folder Id="5cd9eb13-ef56-4d24-8542-933d45b4af4f" ZoneFilterRegularExpression="(The Minstrel's Ballad.+|.+\((Ultimate|Savage|Extreme)\))" Name="OBS Record" Enabled="true">
+          <Folder ZoneFilterEnabled="True" Id="5cd9eb13-ef56-4d24-8542-933d45b4af4f" ZoneFilterRegularExpression="(The Minstrel's Ballad.+|.+\((Ultimate|Savage|Extreme)\))" Name="OBS Record" Enabled="true">
             <Folders>
               <Folder Id="5ba744a8-ce8e-4db8-9066-9aafaf40450d" Name="other stops" Enabled="true">
                 <Folders>
