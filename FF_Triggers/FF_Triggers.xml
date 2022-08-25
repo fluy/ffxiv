@@ -26,7 +26,7 @@
               </Folder>
             </Folders>
             <Triggers>
-              <Trigger Enabled="true" Name="start recording" Id="d83a1e85-3387-46af-92b3-db9d573b38ac" RegularExpression="\A.{15}\w+ 00:(0139|00b9|0239):+戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
+              <Trigger Enabled="true" Name="start recording" Id="d83a1e85-3387-46af-92b3-db9d573b38ac" RegularExpression="\A.{15}\w+ 00:(0139|00B9|0239):+戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="SystemBeep">
                     <Condition Enabled="false" Grouping="Or" />
