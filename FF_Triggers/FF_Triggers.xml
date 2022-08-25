@@ -128,6 +128,9 @@
                   <ConditionSingle Enabled="true" ExpressionL="$1" ExpressionTypeL="String" ExpressionR="stop" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
+              <Action OrderNumber="5" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
