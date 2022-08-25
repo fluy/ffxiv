@@ -180,6 +180,18 @@
         <Actions />
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
+      <Trigger Enabled="true" Name="End Encounter" Id="f2d5fb39-f7f9-4dd9-8a87-de5a6e8eb1c0" RegularExpression="^\[[\d:\.]{12}\] Director 21:8003[0-9A-F]{4}:4000001[23]:00:00:00:00">
+        <Actions>
+          <Action OrderNumber="1" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="EndEncounter">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" OBSControlType="StopRecording" TextAuraFontSize="9" TextAuraFontName="MS UI Gothic" ActionType="ObsControl">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
     </Triggers>
   </ExportedFolder>
 </TriggernometryExport>
