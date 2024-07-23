@@ -47,7 +47,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="411c9d01-bc4c-413b-a24f-ba800dd1ceb2" Name="OBS Record all areas" Enabled="false">
+          <Folder Id="411c9d01-bc4c-413b-a24f-ba800dd1ceb2" Name="OBS Record all areas" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="start recording" Id="e7f59031-29a2-448a-bc53-da1a103bfe06" RegularExpression="\A\[[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}\.[0-9]{0,3}\] ChatLog 00:(0139|00B9|0239):+戦闘開始まで\d{1,2}秒！" Description="これを有効にすることでカウントダウンを検出し、OBS WebSocketに録画開始を通知します。&#xD;&#xA;なお対象コンテンツは、コンテンツの英語名に(Ultimate|Savage|Extreme)が含まれているものです。">
@@ -55,7 +55,7 @@
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" OBSControlType="StopRecording" SoundRouting="None" TTSRouting="None" ActionType="ObsControl">
+                  <Action OrderNumber="2" OBSControlType="StartRecording" SoundRouting="None" TTSRouting="None" ActionType="ObsControl">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="3" OBSControlType="StartRecording" SoundRouting="None" TTSRouting="None" ActionType="ObsControl" ExecutionDelayExpression="5000">
